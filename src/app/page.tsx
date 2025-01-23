@@ -52,7 +52,7 @@ export default function Home() {
         <p className="text-gray-600 text-center sm:text-left">
           Below is a list of Minecraft servers fetched from <code>/api/mock</code>.
         </p>
-        <div className="grid gap-6 w-full max-w-4xl md:grid-cols-2 lg:grid-cols-3 p-4 rounded-lg">
+        <div className="grid gap-6 w-full max-w-6xl md:grid-cols-2 lg:grid-cols-3 p-4 rounded-lg">
           {serverData ? (
             serverData.map((server) =>  <ServerCard
             key={server.id}

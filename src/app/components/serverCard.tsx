@@ -20,7 +20,7 @@ type ServerCardProps = {
 
 const ServerCard: React.FC<ServerCardProps> = ({ server,onToggleStatus }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
+    <div className="flex flex-col items-center bg-white shadow-md rounded-lg p-6 border border-gray-200">
       <h2 className="text-xl font-semibold text-gray-800">{server.name}</h2>
       <p className="text-gray-600">Game: {server.game}</p>
       <p className="text-gray-600">Players: {server.players}</p>
