@@ -46,13 +46,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen w-screen h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full ">
         <h1 className="text-2xl font-bold text-center sm:text-left">Minecraft Server List</h1>
         <p className="text-gray-600 text-center sm:text-left">
           Below is a list of Minecraft servers fetched from <code>/api/mock</code>.
         </p>
-        <div className="grid gap-6 w-full max-w-4xl md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 w-full max-w-4xl md:grid-cols-2 lg:grid-cols-3 p-4 rounded-lg">
           {serverData ? (
             serverData.map((server) =>  <ServerCard
             key={server.id}
