@@ -19,7 +19,19 @@ type Server = {
 export default function Home() {
   const [serverData, setServerData] = useState<Server[] | null>(null);
 
-  useEffect(() => {
+  const toggleServerStatus = (id: string) => {
+    if (!serverData) return;
+
+    setServerData((prevData) => {
+      if (!prevData) return null;
+      return prevData.map((server) =>
+        server.id === id
+          ? { ...server, status: server.status === "online" ? "offline" : "online" }
+          : server
+      );
+    });
+  };
+   useEffect(() => {
     const fetchServerData = async () => {
       try {
         const response = await fetch("/api/mock");
@@ -42,7 +54,11 @@ export default function Home() {
         </p>
         <div className="grid gap-6 w-full max-w-4xl md:grid-cols-2 lg:grid-cols-3">
           {serverData ? (
-            serverData.map((server) => <ServerCard key={server.id} server={server} />)
+            serverData.map((server) =>  <ServerCard
+            key={server.id}
+            server={server}
+            onToggleStatus={() => toggleServerStatus(server.id)}
+          />)
           ) : (
             <p className="text-gray-500">Loading server data...</p>
           )}
